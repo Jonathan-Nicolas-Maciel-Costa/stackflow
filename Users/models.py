@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import BaseUserManager, AbstractUser
 
-import jwt
 from django.conf import settings
 from datetime import datetime, timedelta
 
@@ -73,8 +72,6 @@ class UserManager(BaseUserManager):
             raise ValueError('Superuser precisa ter is_staff = True')
 
         return self._create_super_user( username, email, phone, password, **extra_fields)
-
-
 
 class CustomUser(AbstractUser):
 

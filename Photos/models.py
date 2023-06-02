@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
-from Albuns.models import Album
-
 
 # Create your models here.
 
@@ -15,7 +13,7 @@ class Photo (models.Model):
 
     owner = models.ForeignKey(User, verbose_name=("Dono"), on_delete=models.CASCADE)
     shared_with = models.ManyToManyField(User, verbose_name=("Compartilhado com"), related_name="photo_shared_with")
-    album = models.ForeignKey(Album, verbose_name=("Album"), on_delete=models.CASCADE)
+
     
     verbose_name = 'Photo'
     verbose_name_plural = 'Photos'

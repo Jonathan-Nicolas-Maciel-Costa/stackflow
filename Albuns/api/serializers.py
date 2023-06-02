@@ -1,14 +1,18 @@
 from rest_framework import serializers
 from ..models import Album
-#from Photos.api.serializers import PhotoSerializers
+from Photos.api.serializers import PhotoSerializers
 
 class AlbumSerializers (serializers.ModelSerializer):
-    #photos = PhotoSerializers()
+    photos = PhotoSerializers
 
     class Meta:
 
         model = Album
-        fields = ['title','discription']
+        fields = '__all__'
+
+    def return_photos ():
+
+        return 
 
 
         

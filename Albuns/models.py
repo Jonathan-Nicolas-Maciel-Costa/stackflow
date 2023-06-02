@@ -1,6 +1,7 @@
 from os import path
 from django.db import models
 from django.contrib.auth import get_user_model
+from Photos.models import Photo
 User = get_user_model()
 
 
@@ -13,6 +14,7 @@ class Album (models.Model):
     owner = models.ForeignKey(User, verbose_name=("Dono"), on_delete=models.CASCADE)
     shared_with = models.ManyToManyField(User, verbose_name=("Compartilhado com"), related_name="album_shared_with")
     create_date = models.DateTimeField(("Data de criação"), auto_now_add=True) 
+    photos = models.ManyToManyField(Photo, verbose_name=("Fotos"), blank=True, null=True)
     last_modified = models.DateTimeField(("Ultima alteração"), auto_now=True) 
     delete_on_reset_day = models.BooleanField(("Deletar no dia de exclusão"))
 
